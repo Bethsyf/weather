@@ -12,12 +12,12 @@ const getData = async (url: string) => {
     return data;
   };
 
-const apiCurrent = `http://api.weatherapi.com/v1/current.json?key=bfceb7d7ca9a42a5adb202909222707&q=`;
+const apiCurrent = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=`;
 
-const apiHistory = `http://api.weatherapi.com/v1/history.json?key=${process.env.API_KEY}&q=${nameCity}&dt=${lastDate}`;
+const apiHistory = `http://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${lastDate}`;
 
-const apiForecast = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${nameCity}&dt=${forecastDate}`;
+const apiForecast = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${forecastDate}`;
 
-const apiFuture = `http://api.weatherapi.com/v1/future.json?key=${process.env.API_KEY}&q=${nameCity}&dt=${futureDate}`;
+const apiFuture = `http://api.weatherapi.com/v1/future.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${futureDate}`;
 
 export {getData, apiCurrent, apiHistory, apiForecast, apiFuture};

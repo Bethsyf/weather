@@ -31,7 +31,7 @@ const Form = () => {
       <div>{
             nameCity?((data, index) => (
       <div key={index}>
-        <p style={color='red'}>{data.location?.name}</p>
+        <h1 style={color='red'}>{data.location?.name}</h1>
         <p>{data.current?.temp_c}</p>
       </div> 
       )
