@@ -1,6 +1,7 @@
 import axios from 'axios';
 import type { GetStaticProps, NextPage } from 'next'
 import { apiCurrent } from '../api/getData';
+import Card from '../components/views/Card/Card';
 import Footer from '../components/views/Footer/Footer';
 import Form from '../components/views/Form/Form';
 import Layout from '../components/views/Layout/Layout';
@@ -20,6 +21,8 @@ const HomePage: NextPage<Props> = ({  city }) => {
       
       <Form />
       
+      <Card {city}/>
+
       <Footer /> 
     </>
   )

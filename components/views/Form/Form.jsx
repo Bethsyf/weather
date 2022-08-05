@@ -3,7 +3,6 @@ import { apiCurrent, getData } from '../../../api/getData';
 import Button from '../../controls/Button/Button';
 import styles from './Form.module.scss'
 
-
 const Form = () => {
     const [nameCity, setNameCity] = useState("");
 
@@ -11,9 +10,7 @@ const Form = () => {
         e.preventDefault();
         getData(`${apiCurrent}${nameCity}`);    
       };
-    
-    
-
+        
   return (
     <>
     <div >
