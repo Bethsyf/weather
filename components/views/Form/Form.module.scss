@@ -1,0 +1,31 @@
+.contagen{
+    display: flex;
+    justify-content: center;
+}
+.container {
+    font-size: 2rem;
+    text-align: center;
+    margin: 5px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #e75b30;
+   }
+   
+   .container:hover {    
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+   }
+   
+   .container::placeholder {
+    color: #777;
+   }
+
+   @media (min-width: 768px) {
+    .container{
+        font-size: 1.5rem;  
+    }
+}
