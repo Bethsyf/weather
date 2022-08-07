@@ -21,12 +21,12 @@ const HomePage: NextPage<Props> = ({  city }) => {
       
       <Form />
       
-      <Card {city}/>
+      <Card city={city}/>
 
       <Footer /> 
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
 

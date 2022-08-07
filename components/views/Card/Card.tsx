@@ -27,7 +27,7 @@ const Card = ({city}: Props) => {
         <div>
           <p>Humedad: {city.current?.humidity}</p>
           <p>Velocidad del viento: {city.current?.wind_kph} kph</p>
-          <button><Link href='/${city}/date'><a className={ styles.link }>Buscar por fechas</a></Link></button>  
+          <button><Link href='/{city}/date'><a className={ styles.link }>Buscar por fechas</a></Link></button>  
         </div>
       </div>
    </>
