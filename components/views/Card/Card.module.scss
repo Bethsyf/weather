@@ -2,8 +2,9 @@
     text-align: center;
   }
   
-  .card {
+  .card {    
     margin: 10%;
+    padding: 5%;
     width: 400px;
     height: 100%;  
     border-radius: 0.4em;
@@ -18,7 +19,10 @@
     border: #7d3ff0 0.2em solid;
   }
   
-   
+  .loca, .temp{
+    display: flex;
+    justify-content: space-around;
+  }
   
    .btn {
     border: none;
@@ -35,7 +39,9 @@
    .btn:hover {
     background-position: right center;
     background-size: 200% auto;
-    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
     animation: pulse512 1.5s infinite;
    }
+
+   
    

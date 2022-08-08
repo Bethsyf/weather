@@ -6,17 +6,17 @@ import { CityWeather, Location } from '../../interfaces/city-props';
 import React from "react";
 
 interface Props {
-    location: Location
+    city: CityWeather
   }
 
-const CitybyNamePage: NextPage<Props> = ({ location }) => {
+const CitybyNamePage: NextPage<Props> = ({ city }) => {
   
-  console.log(location?.name)
+  console.log(city?.location?.name)
   return (
     <div>
         
 
-        <div>hola</div>
+        <div>{city?.location?.name}</div>
         {/* <ul>
             <li>{city.location.name}</li>
             <li>Temperatura{city.current?.temp_c}°</li>
@@ -28,72 +28,27 @@ const CitybyNamePage: NextPage<Props> = ({ location }) => {
   )
 }
 
-// export const getStaticPaths: GetStaticPaths = async (ctx) => {
-//   const places = [
-//     {
-//       name: "Bogota",
-      
-//     },
-//     // {
-//     //   name: "Caracas",
-      
-//     // },
-//     // {
-//     //   name: "New York",
-      
-//     // },
-//   ];
-//   const data = getData<CityWeather>(`${apiCurrent}'Medellin'
-//   }`)
-  
-// return{
-//   paths: data
-//     ,
-   
-//     fallback: 'blocking'
+
+
+// export async function getStaticPaths() {
+//   const citya = getData(`${apiCurrent}`)
+//   
+//   const paths = citya.map((city) => ({
+//     params: { name: city.location.name },
+//   }))
+
+//   
+//   // { fallback: false } means other routes should 404.
+//   return { paths, fallback: false }
+// }
+// 
+// export async function getStaticProps({ city }) {
+//  
+//   const city1 = getData(`${apiCurrent}${city.location.name}`)
+//  
+//   return { props: { city1 } }
 // }
 
-//   // return {
-//   //   paths: 
-//   //   ,
-//   //   // fallback: false
-//   //   fallback: 'blocking'
-//   // }
-// }
-
-export const getStaticPaths: GetStaticPaths = async (ctx) => {
-const cities =  await axios.get(`${apiCurrent}`)
-
-  return {
-    paths: cities.( name => ({
-      params: { name }
-    })),
-    //fallback: false
-    fallback: 'blocking'
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  
-  const { nameCity } = params as { nameCity: string };
-
-  const ciudad = getData(`${apiCurrent}${ nameCity }`);
-
-  if ( !ciudad ) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    }
-  }
-
-  return {
-    props: {
-      ciudad
-    }
-  }
-}
 
 
 export default CitybyNamePage

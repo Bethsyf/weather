@@ -1,7 +1,11 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import { apiCurrent, getData } from '../../../api/getData';
+import { CityWeather } from '../../../interfaces/city-props';
 import Button from '../../controls/Button/Button';
 import styles from './Form.module.scss'
+
+
 
 const Form = () => {
     const [nameCity, setNameCity] = useState("");
@@ -11,6 +15,10 @@ const Form = () => {
         getData(`${apiCurrent}${nameCity}`);  
          
       };
+      const router = useRouter();
+  const onClick = () => {    
+    router.push(`/location/${city.location?.name}`)
+  }
         
   return (
     <>
@@ -24,8 +32,9 @@ const Form = () => {
         onChange={(e) => setNameCity(e.target.value)}        
         />
     </div>
-      <Button />     
+      <Button onClick={ onClick }/>     
       </form>
+      
       </div>
       </>
   )
