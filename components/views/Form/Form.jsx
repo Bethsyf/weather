@@ -8,7 +8,8 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        getData(`${apiCurrent}${nameCity}`);    
+        getData(`${apiCurrent}${nameCity}`);  
+         
       };
         
   return (
@@ -23,19 +24,8 @@ const Form = () => {
         onChange={(e) => setNameCity(e.target.value)}        
         />
     </div>
-      <Button />      
+      <Button />     
       </form>
-      <div>{
-            nameCity?((data, index) => (
-      <div key={index}>
-        <h1 style={color='red'}>{data.location?.name}</h1>
-        <p>{data.current?.temp_c}</p>
-      </div> 
-      )
-  ) : (
-    <p>No se encontraron resultados</p>
-  )}
-      </div>
       </div>
       </>
   )
