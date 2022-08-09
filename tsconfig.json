@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/views/Form/Form.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/views/Form/Form.jsx", "components/views/SearchDate"],
   "exclude": ["node_modules"]
 }

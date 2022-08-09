@@ -12,9 +12,9 @@ const getData = async (url: string) => {
     return data;
   };
 
-const apiCurrent = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=`;
+const apiCurrent = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_API_KEY}&lang=es&q=`;
 
-const apiHistory = `http://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${lastDate}`;
+const apiHistory = `http://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=`;
 
 const apiForecast = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${forecastDate}`;
 

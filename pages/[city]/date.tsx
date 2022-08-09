@@ -14,7 +14,7 @@ const datePage = () => {
       <div >
        <input        
             type='date'          
-            name="date"            
+            name="date"           
                      
           />
           <button   >

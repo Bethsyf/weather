@@ -1,68 +1,62 @@
-import axios from 'axios';
-import type { GetStaticProps, NextPage } from 'next'
-import { apiCurrent } from '../api/getData';
-import Card from '../components/views/Card/Card';
-import Footer from '../components/views/Footer/Footer';
-import Form from '../components/views/Form/Form';
+import axios from "axios";
+import type { GetStaticProps, NextPage } from "next";
+import { apiCurrent, getData } from "../api/getData";
+import Card from "../components/views/Card/Card";
+import Footer from "../components/views/Footer/Footer";
+import Form from "../components/views/Form/Form";
 
-import Layout from '../components/views/Layout/Layout';
-import { CityWeather } from '../interfaces/city-props';
-import styles from '../styles/Home.module.scss'
+import Layout from "../components/views/Layout/Layout";
+import { CityWeather } from "../interfaces/city-props";
+import styles from "../styles/pages/Home.module.scss";
 
-interface Props{
-  city: CityWeather
+interface Props {
+  data: CityWeather[];
 }
 
-const HomePage: NextPage<Props> = ({  city }) => {
-
-  
+const HomePage: NextPage<Props> = ({ data }) => {
   
   return (
     <>
-      <Layout title='Weather' />
-      
+      <Layout title="Weather" />
+
       <Form />
       <div className={styles.grid}>
-      <div >
-      
-      <Card city={city}/>
-      
+        {
+        data?.map( (city) => (
+          <Card key={city.location.name} city={ city } />         
+        ))
+        }          
       </div>
-    </div>
 
-      <Footer /> 
+      <Footer />
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  
   const places = [
     {
       name: "Bogota",
-      
     },
-    // {
-    //   name: "Caracas",
-      
-    // },
-    // {
-    //   name: "New York",
-      
-    // },
+    {
+      name: "Caracas",
+    },
+    {
+      name: "New York",
+    },
   ];
 
-  const data = await axios.get(`${apiCurrent}${`${places.map((place) => (    
-    place.name
-  ))}`
-  }`)
-      console.log(data) 
+  const data = await Promise.all(
+    places.map(async (place) => {
+      return await getData(`${apiCurrent}${place.name}`);
+    })
+  );
 
   return {
     props: {
-      city: data.data
-    }
-  }
-}
+      data: data
+    },
+  };
+};
 
-export default HomePage
+export default HomePage;
