@@ -4,6 +4,7 @@ import React from 'react'
 import { CityWeather } from '../../../interfaces/city-props'
 import styles from './Card.module.scss'
 import icon from '/assets/weather/64x64/day/122.png'
+
 interface Props{
     city: CityWeather    
 }
@@ -28,7 +29,7 @@ const Card = ({city}: Props) => {
         </div>
         <p>{city?.current?.condition.text}</p>
         {/* <Image
-          src={icon}
+          src={city?.current.condition.icon}
           alt={city.current?.condition.text}
           width={100}
           height={100}          

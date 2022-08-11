@@ -7,22 +7,23 @@ import React from "react";
 import { useRouter } from 'next/router';
 import styles from '../../styles/pages/City.module.scss'
 
+
 interface Props {
-  city: CityWeather
+  data: CityWeather
   }
 
-const CitybyNamePage: NextPage<Props> = ({ city }) => {
+const CitybyNamePage: NextPage<Props> = ({ data }) => {
   
-  console.log(city?.location?.name)
+  console.log(data?.location?.name)
   const router = useRouter();
   const onClick = () => {    
-    router.push(`/${city?.location?.name}`)
+    router.push(`/${data?.location?.name}`)
   }
 
   return (
     <div className={styles.container}>
         <div className={styles.card}>
-            <h2>{city?.location.name}</h2>
+            <h2>{data?.location.name}</h2>
             {/* <div>
         <p>{city?.location.region}</p>
         <p>{city?.location.country}</p>
@@ -42,38 +43,28 @@ const CitybyNamePage: NextPage<Props> = ({ city }) => {
   )
 }
 
-
-export async function getServerSideProps({ req, res }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
-
-  return {
-    props: {},
-  }
-}
+// export async function getServerSideProps(city:CityWeather) {
+  
+ 
+//   const data = await getData(`${apiCurrent}`)
+  
 
 
-// export async function getStaticPaths() {
-//   const citya = getData(`${apiCurrent}`)
-//   
-//   const paths = citya.map((city) => ({
-//     params: { name: city.location.name },
-//   }))
-
-//   
-//   // { fallback: false } means other routes should 404.
-//   return { paths, fallback: false }
-// }
-// 
-// export async function getStaticProps({ city }) {
-//  
-//   const city1 = getData(`${apiCurrent}${city.location.name}`)
-//  
-//   return { props: { city1 } }
+//   return { props: { data } }
 // }
 
+// export const getStaticPaths: GetStaticPaths = async (ctx) => {
+
+//   const {data} = await getData<CityWeather>(`${apiCurrent}&q={Medellin}`)
+//   const cityName: string = data?.location.name;
+
+
+//   return {
+//     paths: cityName,
+//     // fallback: false
+//     fallback: 'blocking'
+//   }
+// }
 
 
 export default CitybyNamePage

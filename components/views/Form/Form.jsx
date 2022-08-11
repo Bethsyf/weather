@@ -18,6 +18,8 @@ const Form = () => {
       const router = useRouter();
   const onClick = () => {    
     router.push(`/location/${city.location?.name}`)
+  
+  return setNameCity;
   }
         
   return (
