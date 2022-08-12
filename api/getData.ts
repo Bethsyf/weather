@@ -14,7 +14,7 @@ const getData = async (url: string) => {
 
 const apiCurrent = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_API_KEY}&lang=es&q=`;
 
-const apiHistory = `http://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=`;
+const apiHistory = `http://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&lang=es&q=`;
 
 const apiForecast = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${forecastDate}`;
 
