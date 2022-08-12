@@ -29,7 +29,7 @@ const Card = ({city}: Props) => {
         </div>
         <p>{city?.current?.condition.text}</p>
         {/* <Image
-          src={city?.current.condition.icon}
+          src={city?.current.condition.icon || '/no-image.png' }
           alt={city.current?.condition.text}
           width={100}
           height={100}          

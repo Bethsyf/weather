@@ -3,14 +3,14 @@ import Layout from "../../components/views/Layout/Layout";
 
 const datePage = () => {
 
-    const router = useRouter();
-    const {city} = router.query
-    console
+    // const router = useRouter();
+    // const {city} = router.query
+    
 
   return (
     <>
       <Layout/>
-      <p>{city}</p>
+      <p>hola</p>
       <div >
        <input        
             type='date'          
