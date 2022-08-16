@@ -9,6 +9,7 @@ import styles from '../../styles/pages/City.module.scss'
 import Button from '../../components/controls/Button/Button';
 import { useState } from 'react';
 import Navbar from '../../components/views/Navbar/Navbar';
+import Footer from '../../components/views/Footer/Footer';
 
 interface Props {
   data: CityWeather
@@ -37,7 +38,7 @@ const CitybyNamePage: NextPage<Props> = ({ data }) => {
             <p>Sensacion Termica: {data?.current?.feelslike_c}°</p>
             <p>Humedad: {data?.current.humidity}%</p>
             <p>Velocidad del Viento: {data?.current.wind_kph}Kh</p>
-            <p>Direccion del viento: {data?.current.wind_dir}</p>           
+            {/* <p>Direccion del viento: {data?.current.wind_dir}</p>            */}
             <p>Ultima Actualizacion: {data?.current.last_updated}</p>
             
             <div className={styles.container2} >
@@ -54,6 +55,7 @@ const CitybyNamePage: NextPage<Props> = ({ data }) => {
             </div>
         </div>
     </div>
+    <Footer/>
     </>
   )
 }

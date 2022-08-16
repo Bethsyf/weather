@@ -3,13 +3,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;    
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
 }
 
 @media (min-width: 768px) {
-  .grid {
-    width: 100%;
-    flex-wrap: wrap;
+  .grid {        
+    flex-direction: row;    
   }
 }

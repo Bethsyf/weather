@@ -1,5 +1,8 @@
-.card {    
-    margin: 10%;
+.container{
+    display: flex;
+  justify-content: center;
+}
+.card { 
     padding: 5%;
     width: 400px;
     height: 100%;  

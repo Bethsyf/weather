@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import { apiCurrent, apiForecast, apiFuture, apiHistory, getData } from "../../../api/getData";
+import Footer from "../../../components/views/Footer/Footer";
 import Navbar from "../../../components/views/Navbar/Navbar";
 import { CityWeather } from '../../../interfaces/city-props';
 import styles from '../../../styles/pages/Date.module.scss'
@@ -26,6 +27,7 @@ interface Props {
             <p>Velocidad del Viento: {dataResult.forecast?.forecastday[0].day.avgvis_km}Kh</p>            
       </div>  
       </div>   
+      <Footer/>
     </>
   )
 }
