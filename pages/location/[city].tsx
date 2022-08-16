@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import styles from '../../styles/pages/City.module.scss'
 import Button from '../../components/controls/Button/Button';
 import { useState } from 'react';
+import Navbar from '../../components/views/Navbar/Navbar';
 
 interface Props {
   data: CityWeather
@@ -22,6 +23,8 @@ const CitybyNamePage: NextPage<Props> = ({ data }) => {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className={styles.container}>
         <div className={styles.card}>
             <h2>{data?.location.name}</h2>
@@ -33,22 +36,25 @@ const CitybyNamePage: NextPage<Props> = ({ data }) => {
             <p>Temperatura: {data?.current?.temp_c}°</p>
             <p>Sensacion Termica: {data?.current?.feelslike_c}°</p>
             <p>Humedad: {data?.current.humidity}%</p>
-            <p>Velocidad del Viento: {data?.current.wind_kph}</p>
+            <p>Velocidad del Viento: {data?.current.wind_kph}Kh</p>
             <p>Direccion del viento: {data?.current.wind_dir}</p>           
             <p>Ultima Actualizacion: {data?.current.last_updated}</p>
-            <p>Hora local: {data?.location.localtime}</p>
             
+            <div className={styles.container2} >
+              <p>Selecciona una fecha y ve el clima de ese día </p>
+              <input 
+              className={styles.inputf}
+            type="date"
+            onChange={(e) => setDate(e.target.value)} />
             <Button
               type="btn2"
               text={`Ver clima de ${data?.location?.name} por fecha`}
               onClickFn={onClick}
-            />  
-            <input 
-            type="date"
-            onChange={(e) => setDate(e.target.value)} />
-        
+            />              
+            </div>
         </div>
     </div>
+    </>
   )
 }
 

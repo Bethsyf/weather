@@ -10,9 +10,11 @@ interface Props{
 const Button = ({text='', onClickFn='', stylesProps='', type=''}) => {
 
   return (
+    <div className={styles.container}>
     <button className={`${stylesProps} ${styles[type]}`} onClick={onClickFn}>
       {text}
     </button>
+    </div>
   )
 }
 

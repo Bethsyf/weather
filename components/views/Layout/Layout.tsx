@@ -18,7 +18,7 @@ const Layout = ({ children, title }: Props) => {
       </Head>
 
       <Navbar />
-      
+      <h3 className={styles.title}>Digita tu Ciudad y Conoce el Clima</h3>
       <main className={styles.container}
     >{children}
     </main>

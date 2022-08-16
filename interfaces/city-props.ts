@@ -3,6 +3,7 @@
 export interface CityWeather {
     location: Location;
     current:  Current;
+    forecast: Forecast;
 }
 
 export interface Current {
@@ -30,6 +31,35 @@ export interface Current {
     gust_mph:           number;
     gust_kph:           number;
 }
+
+export interface Forecast {
+    forecastday: Forecastday[];
+}
+
+export interface Forecastday {
+    date:       string;
+    date_epoch: number;
+    day:        Day;    
+}
+
+export interface Day {
+    maxtemp_c:      number;
+    maxtemp_f:      number;
+    mintemp_c:      number;
+    mintemp_f:      number;
+    avgtemp_c:      number;
+    avgtemp_f:      number;
+    maxwind_mph:    number;
+    maxwind_kph:    number;
+    totalprecip_mm: number;
+    totalprecip_in: number;
+    avgvis_km:      number;
+    avgvis_miles:   number;
+    avghumidity:    number;
+    condition:      Condition;
+    uv:             number;
+}
+
 
 export interface Condition {
     text: string;

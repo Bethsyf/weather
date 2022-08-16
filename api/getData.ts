@@ -16,8 +16,8 @@ const apiCurrent = `http://api.weatherapi.com/v1/current.json?key=${process.env.
 
 const apiHistory = `http://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&lang=es&q=`;
 
-const apiForecast = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${forecastDate}`;
+const apiForecast = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&lang=es&q=`;
 
-const apiFuture = `http://api.weatherapi.com/v1/future.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${nameCity}&dt=${futureDate}`;
+const apiFuture = `http://api.weatherapi.com/v1/future.json?key=${process.env.NEXT_PUBLIC_API_KEY}&lang=es&q=`;
 
 export {getData, apiCurrent, apiHistory, apiForecast, apiFuture};

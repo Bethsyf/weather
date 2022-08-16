@@ -29,7 +29,7 @@ const Form = ({ city }: Props) => {
         </div>
 
         <Button
-          type="btn2"
+          type="btn"
           text="Ver clima"
           onClickFn={handleOnClick}
         />
