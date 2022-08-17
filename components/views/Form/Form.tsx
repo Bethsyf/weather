@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { ButtonHTMLAttributes, useState } from "react";
 import Button from "../../controls/Button/Button";
 import styles from "./Form.module.scss";
+
 
 const Form = () => {
   const [nameCity, setNameCity] = useState("");
@@ -23,7 +24,7 @@ const Form = () => {
           />
         </div>
 
-        <Button type="btn" text="Ver clima" onClickFn={handleOnClick} />
+        <Button type="btn" text="Ver clima" onClickFn={handleOnClick} stylesProps={""} />
       </div>
     </>
   );

@@ -49,7 +49,7 @@ const datePage: NextPage<Props> = ({ dataResult }) => {
             Velocidad del Viento:{" "}
             {dataResult.forecast?.forecastday[0].day.avgvis_km}Kh
           </p>
-          <Button type="btn" text="Ir al Inicio" onClickFn={goHome} />
+          <Button type="btn" text="Ir al Inicio" onClickFn={goHome} stylesProps={""} />
         </div>
       </div>
       <Footer />
@@ -57,7 +57,7 @@ const datePage: NextPage<Props> = ({ dataResult }) => {
   );
 };
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx: { query: { city: string; date: number; }; }) {
   const dataCurrent = await getData(`${apiCurrent}${ctx.query.city}`);
   const dataHistory = await getData(
     `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`
