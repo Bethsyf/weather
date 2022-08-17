@@ -60,11 +60,9 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
 export async function getServerSideProps(ctx: { query: { city: string; date: number; }; }) {
   const dataCurrent = await getData(`${apiCurrent}${ctx.query.city}`);
   const dataHistory = await getData(
-    `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`
-  ); // dias pasados 01012010
+    `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`); // dias pasados 01012010
   const dataForecast = await getData(
-    `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}`
-  ); //proximos 14 dias
+    `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}`); //proximos 14 dias
   // const dataFuture = await getData(`${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`); // de 14 a 300 dias
   console.log(dataCurrent?.location.localtime);
 
@@ -79,9 +77,11 @@ export async function getServerSideProps(ctx: { query: { city: string; date: num
   //     return dataHistory
   //   }
   //   else if(dateSearch > dateToday ){
-  //     return dataFuture
+  //     return dataForecast
   //   }
   //  }
+
+   
 
   return {
     props: {
