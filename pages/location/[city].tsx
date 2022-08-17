@@ -15,8 +15,9 @@ interface Props {
   goHome: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
 }
 
+
 const CitybyNamePage: NextPage<Props> = ({ data}) => {
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState('');
 
   const router = useRouter();
   const onClick = () => {
