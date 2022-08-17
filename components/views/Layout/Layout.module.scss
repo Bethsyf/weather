@@ -6,3 +6,9 @@
     text-align: center;
     margin: 10%;
 }
+
+@media (min-width: 768px) {
+    .title{        
+        margin: 5%;
+    }
+  }
