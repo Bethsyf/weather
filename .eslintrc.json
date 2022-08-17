@@ -1,13 +1,3 @@
-{ 
-  "root": true, 
-  "parser": "@typescript-eslint/parser", 
-  "plugins": [
-    "@typescript-eslint"
-  ], 
-  "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended", 
-    "plugin:@typescript-eslint/eslint-recommended", 
-    "complemento:@typescript-eslint/recommended"
-  ] 
+{
+  "extends": "next/core-web-vitals"
 }
