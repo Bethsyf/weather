@@ -17,7 +17,7 @@ interface Props {
   dataResult: CityWeather;
 }
 
-const datePage: NextPage<Props> = ({ dataResult }) => {
+const DatePage: NextPage<Props> = ({ dataResult }) => {
   const router = useRouter();
   const goHome = () => {
     router.push("/");
@@ -90,4 +90,4 @@ export async function getServerSideProps(ctx: { query: { city: string; date: num
   };
 }
 
-export default datePage;
+export default DatePage;
