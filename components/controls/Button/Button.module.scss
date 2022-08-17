@@ -1,43 +1,41 @@
-.container{
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
 }
-.btn {    
-    display: block;
-    position: relative;
-    padding: 0.7em 2.4em;
-    border-color: aliceblue;
-    font-size: 1.6rem;
-    background: rgba(21, 128, 199, 0.801);
-    cursor: pointer;        
-    color: aliceblue;    
-    font-family: inherit;
-    font-weight: 500;
-    border-radius: 2.5rem;
-   }   
-   .btn2 {
-    border: none;
-    color: #fff;
-    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
-    border-radius: 20px;
-    background-size: 100% auto;
-    font-family: inherit;
-    font-size: 17px;
-    padding: 0.6em 1.5em;    
-   }
-   
-   .btn2:hover {
-    background-position: right center;
-    background-size: 200% auto;
-    animation: pulse 2s infinite;
-    animation: pulse512 1.5s infinite;
-   }
+.btn {
+  display: block;
+  position: relative;
+  padding: 0.7em 2.4em;
+  border-color: aliceblue;
+  font-size: 1.6rem;
+  background: rgba(21, 128, 199, 0.801);
+  cursor: pointer;
+  color: aliceblue;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 2.5rem;
+}
+.btn2 {
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+  border-radius: 20px;
+  background-size: 100% auto;
+  font-family: inherit;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
+}
 
-   @media (min-width: 600px) {
-    .btn{
-        font-size: 1rem;  
-    }
+.btn2:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  animation: pulse 2s infinite;
+  animation: pulse512 1.5s infinite;
+}
 
-   
+@media (min-width: 600px) {
+  .btn {
+    font-size: 1rem;
+  }
 }

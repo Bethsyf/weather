@@ -1,21 +1,18 @@
-import React from 'react'
-import styles from './Button.module.scss'
+import React from "react";
+import styles from "./Button.module.scss";
 
-
-interface Props{
-  city: string;   
-  
+interface Props {
+  city: string;
 }
 
-const Button = ({text='', onClickFn='', stylesProps='', type=''}) => {
-
+const Button = ({ text = "", onClickFn = "", stylesProps = "", type = "" }) => {
   return (
     <div className={styles.container}>
-    <button className={`${stylesProps} ${styles[type]}`} onClick={onClickFn}>
-      {text}
-    </button>
+      <button className={`${stylesProps} ${styles[type]}`} onClick={onClickFn}>
+        {text}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

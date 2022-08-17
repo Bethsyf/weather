@@ -1,32 +1,31 @@
-.container{
+.container {
   display: flex;
   justify-content: center;
-  }
-  .container2{
-    border: rgb(109, 179, 236) 0.2em solid;
-    border-radius: 10%;
-    }
-  
-  .card {    
-    padding: 5%;
-    width: 450px;
-    height: 100%;  
-    border-radius: 0.4em;
-    box-shadow: 15px 15px 30px #bebebe,
-               -15px -15px 30px #ffffff;
-    transition: box-shadow .3s ease-in-out;
-    border: rgb(186, 202, 245) 0.2em solid;
-    text-align: center;
-    }
-  
-  .loca, .temp{
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .inputf{
-    border-radius: 10%;
-    font-size: larger;
-    border-color: rgb(74, 127, 226);
-  }
-   
+}
+.container2 {
+  border: rgb(109, 179, 236) 0.2em solid;
+  border-radius: 10%;
+}
+
+.card {
+  padding: 5%;
+  width: 450px;
+  height: 100%;
+  border-radius: 0.4em;
+  box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+  transition: box-shadow 0.3s ease-in-out;
+  border: rgb(186, 202, 245) 0.2em solid;
+  text-align: center;
+}
+
+.loca,
+.temp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.inputf {
+  border-radius: 10%;
+  font-size: larger;
+  border-color: rgb(74, 127, 226);
+}

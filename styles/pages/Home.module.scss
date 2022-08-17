@@ -2,13 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;    
+  flex-direction: column;
   grid-column-gap: 40px;
   grid-row-gap: 40px;
 }
 
 @media (min-width: 768px) {
-  .grid {        
-    flex-direction: row;    
+  .grid {
+    flex-direction: row;
   }
 }

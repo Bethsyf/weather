@@ -17,7 +17,7 @@ const HomePage: NextPage<Props> = ({ data }) => {
       <Layout title="Weather" />
 
       <Form />
-      
+
       <div className={styles.grid}>
         {data?.map((city) => (
           <Card key={city.location.name} city={city} />

@@ -1,45 +1,42 @@
-.container{
-    text-align: center;
-  }
-  
-  .card {        
-    padding: 5%;
-    width: 400px;
-    height: 100%;  
-    border-radius: 0.4em;
-    box-shadow: 15px 15px 30px #bebebe,
-               -15px -15px 30px #ffffff;
-    transition: box-shadow .3s ease-in-out;
-    border: rgb(186, 202, 245) 0.2em solid;
-    text-align: center;
-    }
-  
-  .card:hover {
-    border: #7d3ff0 0.2em solid;
-  }
-  
-  .loca, .temp{
-    display: flex;
-    justify-content: space-around;
-  }
-  
-   .btn {
-    border: none;
-    color: #fff;
-    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
-    border-radius: 20px;
-    background-size: 100% auto;
-    font-family: inherit;
-    font-size: 17px;
-    padding: 0.6em 1.5em;    
-   }
-   
-   .btn:hover {
-    background-position: right center;
-    background-size: 200% auto;
-    animation: pulse 2s infinite;
-    animation: pulse512 1.5s infinite;
-   }
+.container {
+  text-align: center;
+}
 
-   
-   
+.card {
+  padding: 5%;
+  width: 400px;
+  height: 100%;
+  border-radius: 0.4em;
+  box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+  transition: box-shadow 0.3s ease-in-out;
+  border: rgb(186, 202, 245) 0.2em solid;
+  text-align: center;
+}
+
+.card:hover {
+  border: #7d3ff0 0.2em solid;
+}
+
+.loca,
+.temp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+  border-radius: 20px;
+  background-size: 100% auto;
+  font-family: inherit;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
+}
+
+.btn:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  animation: pulse 2s infinite;
+  animation: pulse512 1.5s infinite;
+}
