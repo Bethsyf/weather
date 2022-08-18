@@ -46,7 +46,7 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
           <p>Última Actualización: {data?.current.last_updated}</p>
 
           <div className={styles.container2}>
-            <p>Selecciona una fecha en el pasado y ve como fue el clima de ese día </p>
+            <p>Selecciona una fecha ve el clima de ese día </p>
             <input
               className={styles.inputf}
               type="date"              
@@ -55,7 +55,7 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
             <Button
               type="btn2"
               text={`Ver clima de ${data?.location?.name} por fecha`}
-              onClickFn={onClick} stylesProps={""}            />
+              onClickFn={onClick} stylesProps={""}/>
           </div>
           <Button type="btn" text="Ir al Inicio" onClickFn={goHome} stylesProps={""} />
         </div>

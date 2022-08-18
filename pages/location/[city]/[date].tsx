@@ -1,3 +1,4 @@
+import moment from "moment";
 import { NextPage } from "next";
 import { Router, useRouter } from "next/router";
 import {
@@ -25,6 +26,11 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
     router.push("/");
   };
 
+  
+  const goBack = () => {
+    router.push(`/location/${dataResult?.location.name}`);
+  };
+
   return (
     <>
       <Navbar />
@@ -39,11 +45,11 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
             Temperatura: {dataResult?.forecast?.forecastday[0].day.avgtemp_c}°
           </p>
           <p>
-            Temperatura maxima:{" "}
+            Temperatura máxima:
             {dataResult.forecast?.forecastday[0].day.maxtemp_c}°
           </p>
           <p>
-            Temperatura minima:{" "}
+            Temperatura mínima:{" "}
             {dataResult.forecast?.forecastday[0].day.mintemp_c}°
           </p>
           <p>Humedad: {dataResult.forecast?.forecastday[0].day.avghumidity}%</p>
@@ -51,7 +57,10 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
             Velocidad del Viento:{" "}
             {dataResult.forecast?.forecastday[0].day.avgvis_km}Kh
           </p>
-          <Button type="btn" text="Ir al Inicio" onClickFn={goHome} stylesProps={""} />
+          <div className={styles.container}>
+            <Button type="btn" text="volver" onClickFn={goBack} stylesProps={""} />
+            <Button type="btn" text="Inicio" onClickFn={goHome} stylesProps={""} />
+          </div>
         </div>
       </div>
       <Footer />
@@ -61,29 +70,22 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
 
 export async function getServerSideProps(ctx: { query: { city: string; date: number; }; }) {
   const dataCurrent = await getData(`${apiCurrent}${ctx.query.city}`);
-  // const dataHistory = await getData(
-  //   `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`); // dias pasados 01012010
-  // const dataForecast = await getData(
-    
-  //   `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}`); //proximos 14 dias
-  const dataFuture = await getData(`${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`); // de 14 a 300 dias
-  console.log(dataCurrent?.location.localtime);
-
   const dateToday = dataCurrent?.location.localtime;
-
   const dateSearch = ctx.query.date;
 
-  const dataResult = dataFuture;
-   
-  // const dataResult =async ()=> {
-  //     if(dateSearch < dateToday){
-  //       return await getData(`${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`)
-  //     }
-  //     else if(dateSearch > dateToday ){
-  //       return await getData(`${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`)
-  //     }
-  //    }
-  //    const data=dataResult()
+  const days = moment(dateSearch).diff(moment(dateToday), "days");
+
+  const validationData = () => {
+    if (days > 0 && days < 14){
+      return `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}` //proximos 14 dias
+    } else if (days > 14) {
+      return `${apiFuture}${ctx.query.city}&dt=${ctx.query.date}` // de 14 a 300 dias
+    } else {
+      return `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}` // dias pasados 01012010
+    }
+  }
+  
+  const dataResult = await getData(validationData());
 
   
    

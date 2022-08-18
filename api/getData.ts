@@ -7,8 +7,7 @@ const futureDate = '2022-10-15';
 
 const getData = async (url: string) => {
     const dataCity = await axios.get(url);
-    const { data } = dataCity;
-    console.log(data);
+    const { data } = dataCity;   
     return data;
   };
 
