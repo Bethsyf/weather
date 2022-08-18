@@ -33,26 +33,23 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
       <Navbar />
       <div className={styles.container}>
         <div className={styles.card}>
-          <h2>Clima de {dataResult?.location.name}</h2>
+          <h1>Clima de {dataResult?.location.name}</h1>
           <p style={{ color: "blue" }}>
             para el {dataResult?.forecast?.forecastday[0].date}
           </p>
-          <p>{dataResult?.forecast?.forecastday[0].day.condition.text}</p>
+          <p className={styles.color1}>{dataResult?.forecast?.forecastday[0].day.condition.text}</p>
           <p>
-            Temperatura: {dataResult?.forecast?.forecastday[0].day.avgtemp_c}°
+            Temperatura: <b className={styles.color2}>{dataResult?.forecast?.forecastday[0].day.avgtemp_c}°</b>
           </p>
           <p>
-            Temperatura máxima:
-            {dataResult.forecast?.forecastday[0].day.maxtemp_c}°
+            Temperatura máxima: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.maxtemp_c}°</b>
           </p>
           <p>
-            Temperatura mínima:
-            {dataResult.forecast?.forecastday[0].day.mintemp_c}°
+            Temperatura mínima: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.mintemp_c}°</b>
           </p>
-          <p>Humedad: {dataResult.forecast?.forecastday[0].day.avghumidity}%</p>
+          <p>Humedad: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.avghumidity}%</b></p>
           <p>
-            Velocidad del Viento:
-            {dataResult.forecast?.forecastday[0].day.avgvis_km}Kph
+            Velocidad del Viento: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.avgvis_km}Km/h</b>
           </p>
           <div className={styles.container}>
             <Button
@@ -87,12 +84,12 @@ export async function getServerSideProps(ctx: {
   const validationData = () => {
     if (days > 0 && days < 14) {
       return `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}`; //proximos 14 dias
-    } else if (days > 14) {
+    } 
+    if (days > 14) {
       return `${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`; // de 14 a 300 dias
-    } else {
+    } 
       return `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`; // dias pasados 01012010
-    }
-  };
+    };
 
   const dataResult = await getData(validationData());
 

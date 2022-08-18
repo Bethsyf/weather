@@ -32,21 +32,21 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
       <Navbar />
       <div className={styles.container}>
         <div className={styles.card}>
-          <h2>{data?.location.name}</h2>
+          <h1>{data?.location.name}</h1>
           <div>
             <p>{data?.location.region}</p>
             <p>{data?.location.country}</p>
           </div>
-          <p>Clima: {data?.current.condition.text}</p>
-          <p>Temperatura: {data?.current?.temp_c}°</p>
-          <p>Sensación Térmica: {data?.current?.feelslike_c}°</p>
-          <p>Humedad: {data?.current.humidity}%</p>
-          <p>Velocidad del Viento: {data?.current.wind_kph}Kph</p>
+          <p className={styles.color1}>{data?.current.condition.text}</p>
+          <p>Temperatura: <b className={styles.color2}>{data?.current?.temp_c}°</b></p>
+          <p>Sensación Térmica: <b className={styles.color2}>{data?.current?.feelslike_c}°</b></p>
+          <p>Humedad: <b className={styles.color2}>{data?.current.humidity}%</b></p>
+          <p>Velocidad del Viento: <b className={styles.color2}>{data?.current.wind_kph}Km/h</b></p>
           {/* <p>Direccion del viento: {data?.current.wind_dir}</p>*/}
-          <p>Última Actualización: {data?.current.last_updated}</p>
+          <p>Actualización de datos al {data?.current.last_updated.split(" ")[0]} a las {data?.current.last_updated.split(" ")[1]}</p>
 
           <div className={styles.container2}>
-            <p>Selecciona una fecha ve el clima de ese día </p>
+            <p>Selecciona una fecha para ver el clima de ese día </p>
             <input
               className={styles.inputf}
               type="date"              

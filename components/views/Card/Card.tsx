@@ -25,7 +25,7 @@ const Card = ({ city }: Props) => {
             <p>{city?.location.region}</p>
             <p>{city?.location.country}</p>
           </div>
-          <p>{city?.current?.condition.text}</p>
+          <p className={styles.color1}>{city?.current?.condition.text}</p>
           {/* <Image
           src={city?.current.condition.icon || '/no-image.png' }
           alt={city.current?.condition.text}
@@ -33,12 +33,12 @@ const Card = ({ city }: Props) => {
           height={100}          
         /> */}
           <div className={styles.temp}>
-            <p>Temperatura: {city?.current?.temp_c}°C</p>
-            <p>Sensación Termica: {city?.current?.feelslike_c}°C </p>
+            <p>Temperatura: <b className={styles.color2}>{city?.current?.temp_c}°C</b></p>
+            <p>Sensación Termica: <b className={styles.color2}>{city?.current?.feelslike_c}°C</b></p>
           </div>
           <div>
-            <p>Humedad: {city?.current?.humidity}%</p>
-            <p>Velocidad del Viento: {city?.current?.wind_kph} kph</p>
+            <p>Humedad: <b className={styles.color2}>{city?.current?.humidity}%</b></p>
+            <p>Velocidad del Viento: <b className={styles.color2}>{city?.current?.wind_kph}Km/h</b></p>
           </div>
         </div>
       </div>
