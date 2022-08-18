@@ -19,13 +19,11 @@ interface Props {
 }
 
 const DatePage: NextPage<Props> = ({ dataResult }) => {
-
-
   const router = useRouter();
   const goHome = () => {
     router.push("/");
   };
-  
+
   const goBack = () => {
     router.push(`/location/${dataResult?.location.name}`);
   };
@@ -54,11 +52,21 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
           <p>Humedad: {dataResult.forecast?.forecastday[0].day.avghumidity}%</p>
           <p>
             Velocidad del Viento:
-            {dataResult.forecast?.forecastday[0].day.avgvis_km}Kh
+            {dataResult.forecast?.forecastday[0].day.avgvis_km}Kph
           </p>
           <div className={styles.container}>
-            <Button type="btn" text="volver" onClickFn={goBack} stylesProps={""} />
-            <Button type="btn" text="Inicio" onClickFn={goHome} stylesProps={""} />
+            <Button
+              type="btn"
+              text="volver"
+              onClickFn={goBack}
+              stylesProps={""}
+            />
+            <Button
+              type="btn"
+              text="Inicio"
+              onClickFn={goHome}
+              stylesProps={""}
+            />
           </div>
         </div>
       </div>
@@ -67,7 +75,9 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
   );
 };
 
-export async function getServerSideProps(ctx: { query: { city: string; date: number; }; }) {
+export async function getServerSideProps(ctx: {
+  query: { city: string; date: number };
+}) {
   const dataCurrent = await getData(`${apiCurrent}${ctx.query.city}`);
   const dateToday = dataCurrent?.location.localtime;
   const dateSearch = ctx.query.date;
@@ -75,19 +85,17 @@ export async function getServerSideProps(ctx: { query: { city: string; date: num
   const days = moment(dateSearch).diff(moment(dateToday), "days");
 
   const validationData = () => {
-    if (days > 0 && days < 14){
-      return `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}` //proximos 14 dias
+    if (days > 0 && days < 14) {
+      return `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}`; //proximos 14 dias
     } else if (days > 14) {
-      return `${apiFuture}${ctx.query.city}&dt=${ctx.query.date}` // de 14 a 300 dias
+      return `${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`; // de 14 a 300 dias
     } else {
-      return `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}` // dias pasados 01012010
+      return `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`; // dias pasados 01012010
     }
-  }
-  
+  };
+
   const dataResult = await getData(validationData());
 
-  
-   
   return {
     props: {
       dataResult,

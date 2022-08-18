@@ -41,7 +41,7 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
           <p>Temperatura: {data?.current?.temp_c}°</p>
           <p>Sensación Térmica: {data?.current?.feelslike_c}°</p>
           <p>Humedad: {data?.current.humidity}%</p>
-          <p>Velocidad del Viento: {data?.current.wind_kph}Kh</p>
+          <p>Velocidad del Viento: {data?.current.wind_kph}Kph</p>
           {/* <p>Direccion del viento: {data?.current.wind_dir}</p>*/}
           <p>Última Actualización: {data?.current.last_updated}</p>
 
