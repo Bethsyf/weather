@@ -1,6 +1,6 @@
 import moment from "moment";
 import { NextPage } from "next";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import {
   apiCurrent,
   apiForecast,
@@ -25,7 +25,6 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
   const goHome = () => {
     router.push("/");
   };
-
   
   const goBack = () => {
     router.push(`/location/${dataResult?.location.name}`);
@@ -38,7 +37,7 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
         <div className={styles.card}>
           <h2>Clima de {dataResult?.location.name}</h2>
           <p style={{ color: "blue" }}>
-            para el {dataResult?.forecast?.forecastday[0].date}{" "}
+            para el {dataResult?.forecast?.forecastday[0].date}
           </p>
           <p>{dataResult?.forecast?.forecastday[0].day.condition.text}</p>
           <p>
@@ -49,12 +48,12 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
             {dataResult.forecast?.forecastday[0].day.maxtemp_c}°
           </p>
           <p>
-            Temperatura mínima:{" "}
+            Temperatura mínima:
             {dataResult.forecast?.forecastday[0].day.mintemp_c}°
           </p>
           <p>Humedad: {dataResult.forecast?.forecastday[0].day.avghumidity}%</p>
           <p>
-            Velocidad del Viento:{" "}
+            Velocidad del Viento:
             {dataResult.forecast?.forecastday[0].day.avgvis_km}Kh
           </p>
           <div className={styles.container}>
