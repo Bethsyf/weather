@@ -8,7 +8,9 @@ const Navbar = () => {
     <>
       <header className={styles.container}>
         <Link href="/">
+        <a >
           <Image src={weather} alt="logo-app" width={150} height={150} />
+          </a>
         </Link>
       </header>
     </>

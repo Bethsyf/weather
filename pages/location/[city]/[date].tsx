@@ -18,6 +18,8 @@ interface Props {
 }
 
 const DatePage: NextPage<Props> = ({ dataResult }) => {
+
+
   const router = useRouter();
   const goHome = () => {
     router.push("/");
@@ -59,30 +61,32 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
 
 export async function getServerSideProps(ctx: { query: { city: string; date: number; }; }) {
   const dataCurrent = await getData(`${apiCurrent}${ctx.query.city}`);
-  const dataHistory = await getData(
-    `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`); // dias pasados 01012010
-  const dataForecast = await getData(
-    `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}`); //proximos 14 dias
-  // const dataFuture = await getData(`${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`); // de 14 a 300 dias
+  // const dataHistory = await getData(
+  //   `${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`); // dias pasados 01012010
+  // const dataForecast = await getData(
+    
+  //   `${apiForecast}${ctx.query.city}&dt=${ctx.query.date}`); //proximos 14 dias
+  const dataFuture = await getData(`${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`); // de 14 a 300 dias
   console.log(dataCurrent?.location.localtime);
 
   const dateToday = dataCurrent?.location.localtime;
 
   const dateSearch = ctx.query.date;
 
-  const dataResult = dataHistory;
-
-  //  const dataResult = ()=> {
-  //   if(dateSearch < dateToday){
-  //     return dataHistory
-  //   }
-  //   else if(dateSearch > dateToday ){
-  //     return dataForecast
-  //   }
-  //  }
-
+  const dataResult = dataFuture;
    
+  // const dataResult =async ()=> {
+  //     if(dateSearch < dateToday){
+  //       return await getData(`${apiHistory}${ctx.query.city}&dt=${ctx.query.date}`)
+  //     }
+  //     else if(dateSearch > dateToday ){
+  //       return await getData(`${apiFuture}${ctx.query.city}&dt=${ctx.query.date}`)
+  //     }
+  //    }
+  //    const data=dataResult()
 
+  
+   
   return {
     props: {
       dataResult,
