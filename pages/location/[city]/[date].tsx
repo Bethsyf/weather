@@ -31,27 +31,31 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
   return (
     <>
       <Navbar />
-      <div className={styles.container}>
+      <div className={styles.container1}>
         <div className={styles.card}>
+          <div className={styles.container2}>
           <h1>Clima de {dataResult?.location.name}</h1>
           <p style={{ color: "blue" }}>
             para el {dataResult?.forecast?.forecastday[0].date}
           </p>
+          </div>
           <p className={styles.color1}>{dataResult?.forecast?.forecastday[0].day.condition.text}</p>
           <p>
             Temperatura: <b className={styles.color2}>{dataResult?.forecast?.forecastday[0].day.avgtemp_c}°</b>
           </p>
+          <div className={styles.container2}>
           <p>
             Temperatura máxima: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.maxtemp_c}°</b>
           </p>
           <p>
             Temperatura mínima: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.mintemp_c}°</b>
           </p>
+          </div>
           <p>Humedad: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.avghumidity}%</b></p>
           <p>
             Velocidad del Viento: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.avgvis_km}Km/h</b>
           </p>
-          <div className={styles.container2}>
+          <div className={styles.container4}>
             <Button
               type="btn"
               text="volver"

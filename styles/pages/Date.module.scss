@@ -1,4 +1,4 @@
-.container {
+.container1 {
   display: flex;
   justify-content: center;
 }
@@ -26,8 +26,21 @@
 }
 
 @media (min-width: 768px) {
+  .container1 {
+    font-size: large;
+  }
   .container2 {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+  }
+  .container4 {
+    display: flex;
+    justify-content: space-around;
+  }
+  .card {
+    padding: 3%;
+    width: 50%;
+    font-size: large;  
   }
 }

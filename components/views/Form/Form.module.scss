@@ -31,7 +31,11 @@
 }
 
 @media (min-width: 768px) {
+  .container1 {
+    margin: 4%;    
+  }
   .container2 {
     font-size: 1.3rem;
+    width: 35%;
   }
 }

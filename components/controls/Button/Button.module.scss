@@ -8,7 +8,7 @@
   position: relative;
   padding: 0.7em 2.4em;
   border-color: aliceblue;
-  font-size: 1.6rem;
+  font-size: 1rem;
   background: rgba(21, 128, 199, 0.801);
   cursor: pointer;
   color: aliceblue;
@@ -34,7 +34,7 @@
   animation: pulse512 1.5s infinite;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   .btn {
     font-size: 1rem;
   }

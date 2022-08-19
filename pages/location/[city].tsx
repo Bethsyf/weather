@@ -30,23 +30,27 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
   return (
     <>
       <Navbar />
-      <div className={styles.container}>
+      <div className={styles.container1}>
         <div className={styles.card}>
-          <h1>{data?.location.name}</h1>
-          <div>
+          <div className={styles.container2}>
+          <h1>{data?.location.name}</h1>          
             <p>{data?.location.region}</p>
-            <p>{data?.location.country}</p>
-          </div>
+            <p>{data?.location.country}</p> 
+            </div>  
+            <div>      
           <p className={styles.color1}>{data?.current.condition.text}</p>
+          </div> 
+          <div className={styles.container2}>
           <p>Temperatura: <b className={styles.color2}>{data?.current?.temp_c}°</b></p>
           <p>Sensación Térmica: <b className={styles.color2}>{data?.current?.feelslike_c}°</b></p>
+          </div>
           <p>Humedad: <b className={styles.color2}>{data?.current.humidity}%</b></p>
           <p>Velocidad del Viento: <b className={styles.color2}>{data?.current.wind_kph}Km/h</b></p>
           {/* <p>Direccion del viento: {data?.current.wind_dir}</p>*/}
           <p>Actualización de datos al {data?.current.last_updated.split(" ")[0]} a las {data?.current.last_updated.split(" ")[1]}</p>
 
-          <div className={styles.container2}>
-            <p>Selecciona una fecha para ver el clima de ese día </p>
+          <div className={styles.container3}>          
+            <p>Selecciona una fecha para ver el clima de ese día </p>            
             <input
               className={styles.inputf}
               type="date"              
@@ -57,6 +61,7 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
               text={`Ver clima de ${data?.location?.name} por fecha`}
               onClickFn={onClick} stylesProps={""}/>
           </div>
+          
           <Button type="btn" text="Ir al Inicio" onClickFn={goHome} stylesProps={""} />
         </div>
       </div>
