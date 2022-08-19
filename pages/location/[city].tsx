@@ -40,7 +40,7 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
           <p className={styles.color1}>{data?.current.condition.text}</p>
           </div> 
 
-          <div className={styles.container2}>
+          <div className={styles.container3}>
           <p>Temperatura: <b className={styles.color2}>{data?.current?.temp_c}°</b></p>
           <p>Sensación Térmica: <b className={styles.color2}>{data?.current?.feelslike_c}°</b></p>
           </div>
@@ -49,7 +49,7 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
           <p>Velocidad del Viento: <b className={styles.color2}>{data?.current.wind_kph}Km/h</b></p>          
           <p>Actualización de datos al {data?.current.last_updated.split(" ")[0]} a las {data?.current.last_updated.split(" ")[1]}</p>
 
-          <div className={styles.container3}>          
+          <div className={styles.container4}>          
             <p>Selecciona una fecha para ver el clima de ese día </p>            
             <input
               className={styles.inputf}

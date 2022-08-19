@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.container3 {
+.container4 {
   border: rgb(109, 179, 236) 0.2em solid;
   border-radius: 15%;
   width: 95%;
@@ -48,6 +48,11 @@
   .container2 {
     display: flex;
     justify-content:space-between;
+    align-items: center;
+  }
+  .container3 {
+    display: flex;
+    justify-content:space-around;
     align-items: center;
   }
   .card {    
