@@ -1,20 +1,18 @@
 import { NextPage } from "next";
 import { apiCurrent, getData } from "../../api/getData";
 import { CityWeather, Location } from "../../interfaces/city-props";
-import React, { ButtonHTMLAttributes, ChangeEvent } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/pages/City.module.scss";
 import Button from "../../components/controls/Button/Button";
 import { useState } from "react";
-import Navbar from "../../components/views/Navbar/Navbar";
 import Footer from "../../components/views/Footer/Footer";
-
+import Layout from "../../components/views/Layout/Layout";
 
 interface Props {
   data: CityWeather;
   goHome: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
 }
-
 
 const CitybyNamePage: NextPage<Props> = ({ data}) => {
   const [date, setDate] = useState('');
@@ -29,7 +27,8 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
 
   return (
     <>
-      <Navbar />
+      <Layout title={`${data?.location.name} Weather`} />          
+
       <div className={styles.container1}>
         <div className={styles.card}>
           <div className={styles.container2}>
@@ -40,13 +39,14 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
             <div>      
           <p className={styles.color1}>{data?.current.condition.text}</p>
           </div> 
+
           <div className={styles.container2}>
           <p>Temperatura: <b className={styles.color2}>{data?.current?.temp_c}°</b></p>
           <p>Sensación Térmica: <b className={styles.color2}>{data?.current?.feelslike_c}°</b></p>
           </div>
+
           <p>Humedad: <b className={styles.color2}>{data?.current.humidity}%</b></p>
-          <p>Velocidad del Viento: <b className={styles.color2}>{data?.current.wind_kph}Km/h</b></p>
-          {/* <p>Direccion del viento: {data?.current.wind_dir}</p>*/}
+          <p>Velocidad del Viento: <b className={styles.color2}>{data?.current.wind_kph}Km/h</b></p>          
           <p>Actualización de datos al {data?.current.last_updated.split(" ")[0]} a las {data?.current.last_updated.split(" ")[1]}</p>
 
           <div className={styles.container3}>          
@@ -71,9 +71,12 @@ const CitybyNamePage: NextPage<Props> = ({ data}) => {
 };
 
 export async function getServerSideProps(ctx: { query: { city: string; }; }) {
+  
   const data = await getData(`${apiCurrent}${ctx.query.city}`);
 
-  return { props: { data } };
+  return { 
+    props: { data } 
+  };
 }
 
 export default CitybyNamePage;

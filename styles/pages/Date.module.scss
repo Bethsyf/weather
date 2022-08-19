@@ -1,6 +1,7 @@
 .container1 {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .card {
@@ -14,12 +15,12 @@
   text-align: center;
 }
 
-
 .color1 {
   font-weight: 700;
   color: rgb(202, 107, 43);
   font-size: 20px;
 }
+
 .color2 {
   font-weight: 700;
   color: rgb(23, 114, 167);
@@ -36,11 +37,14 @@
   }
   .container4 {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;  
   }
   .card {
     padding: 3%;
     width: 50%;
     font-size: large;  
+  }
+  .color1 {    
+    font-size: 2rem;
   }
 }

@@ -1,12 +1,12 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
 import Navbar from "../Navbar/Navbar";
-import styles from "./Layout.module.scss";
 
 interface Props {
   title?: string;
   children?: ReactNode;
 }
+
 const Layout = ({ children, title }: Props) => {
   return (
     <>
@@ -21,8 +21,8 @@ const Layout = ({ children, title }: Props) => {
       </Head>
 
       <Navbar />
-      <h3 className={styles.title}>Digita tu Ciudad y Conoce el Clima</h3>
-      <main className={styles.container}>{children}</main>
+      
+      <main >{children}</main>
     </>
   );
 };

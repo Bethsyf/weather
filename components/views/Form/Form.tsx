@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
-import React, { ButtonHTMLAttributes, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../controls/Button/Button";
 import styles from "./Form.module.scss";
-
 
 const Form = () => {
   const [nameCity, setNameCity] = useState("");

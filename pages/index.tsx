@@ -14,7 +14,9 @@ interface Props {
 const HomePage: NextPage<Props> = ({ data }) => {
   return (
     <>
-      <Layout title="Weather" />
+      <Layout />
+
+      <h3 className={styles.title}>Digita tu Ciudad y Conoce el Clima</h3>
 
       <Form />
 
@@ -30,6 +32,7 @@ const HomePage: NextPage<Props> = ({ data }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+
   const places = [
     {
       name: "Bogota",

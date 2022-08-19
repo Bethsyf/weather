@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { CityWeather } from "../../../interfaces/city-props";
@@ -25,20 +24,26 @@ const Card = ({ city }: Props) => {
             <p>{city?.location.region}</p>
             <p>{city?.location.country}</p>
           </div>
-          <p className={styles.color1}>{city?.current?.condition.text}</p>
-          {/* <Image
-          src={city?.current.condition.icon || '/no-image.png' }
-          alt={city.current?.condition.text}
-          width={100}
-          height={100}          
-        /> */}
+          <p className={styles.color1}>{city?.current?.condition.text}</p>          
           <div className={styles.temp}>
-            <p>Temperatura: <b className={styles.color2}>{city?.current?.temp_c}°C</b></p>
-            <p>Sensación Termica: <b className={styles.color2}>{city?.current?.feelslike_c}°C</b></p>
+            <p>
+              Temperatura:{" "}
+              <b className={styles.color2}>{city?.current?.temp_c}°C</b>
+            </p>
+            <p>
+              Sensación Termica:{" "}
+              <b className={styles.color2}>{city?.current?.feelslike_c}°C</b>
+            </p>
           </div>
           <div>
-            <p>Humedad: <b className={styles.color2}>{city?.current?.humidity}%</b></p>
-            <p>Velocidad del Viento: <b className={styles.color2}>{city?.current?.wind_kph}Km/h</b></p>
+            <p>
+              Humedad:{" "}
+              <b className={styles.color2}>{city?.current?.humidity}%</b>
+            </p>
+            <p>
+              Velocidad del Viento:{" "}
+              <b className={styles.color2}>{city?.current?.wind_kph}Km/h</b>
+            </p>
           </div>
         </div>
       </div>
