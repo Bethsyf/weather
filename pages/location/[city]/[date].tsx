@@ -51,7 +51,7 @@ const DatePage: NextPage<Props> = ({ dataResult }) => {
           <p>
             Velocidad del Viento: <b className={styles.color2}>{dataResult.forecast?.forecastday[0].day.avgvis_km}Km/h</b>
           </p>
-          <div className={styles.container}>
+          <div className={styles.container2}>
             <Button
               type="btn"
               text="volver"

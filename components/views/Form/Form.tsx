@@ -14,10 +14,10 @@ const Form = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.container1}>
         <div className={styles.contagen}>
           <input
-            className={styles.container}
+            className={styles.container2}
             type="text"
             placeholder="Ciudad"
             onChange={(e) => setNameCity(e.target.value)}

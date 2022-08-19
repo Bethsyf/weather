@@ -5,7 +5,7 @@
 
 .card {
   padding: 5%;
-  width: 400px;
+  width: 95%;
   height: 100%;
   border-radius: 0.4em;
   box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
@@ -13,6 +13,7 @@
   border: rgb(186, 202, 245) 0.2em solid;
   text-align: center;
 }
+
 
 .color1 {
   font-weight: 700;
@@ -22,4 +23,11 @@
 .color2 {
   font-weight: 700;
   color: rgb(23, 114, 167);
+}
+
+@media (min-width: 768px) {
+  .container2 {
+    display: flex;
+    justify-content: space-around;
+  }
 }
